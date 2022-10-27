@@ -15,30 +15,21 @@ int main(){
   int n;
   cin >> n;
 
-  int ans = 0;
-  int i = 0;
-  while (n!=0){
-    int bit = n&1;
-    if(bit == 1){
-      ans = ans + (bit*(pow(10,i)));
-    }
-    n = n >> 1;
-    i++;
-  }
-  cout << ans << endl;
-  
-  // int flip = 0;
-  // while(ans!=0){
-  //   int digit = ans%10;
-  //   if(digit == 1){
-  //     flip = flip*10+digit;
-  //   }
-    
-  //   flip /= 10;
-  // }
-  // cout << ans << endl;
-  // cout << flip;
+  // n = 5 101 010
 
+  int power = 1;
+  int ans = 0;
+
+  while(n!=0){
+    int bit = n&1;
+    if(bit == 0){
+      ans += power;
+    }
+    power= power * 2;
+    n = n >> 1;
+  }
+
+  cout << "complement is " << ans;
 
     return 0;
 }
